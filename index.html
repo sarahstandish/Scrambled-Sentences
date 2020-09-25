@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scrambled Sentences</title>
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&display=swap" rel="stylesheet"> 
+  </head>
+
+  <body>
+      <h1>Scrambled Sentences</h1>
+
+      <div id="incomplete-sentence">
+        <p class="directions">Complete each word to form a sentence</p>
+        <form id="sentenceForm">
+        </form>
+        <button type="button" form="sentenceForm" value="Submit" id="submit">Submit</button>
+      </div>
+
+      <div id="hints">Hints to be added later</div>
+
+      <div id="select-sentence">
+        <p class="directions">Which sentence is from a published book?</p>
+        <p class="sentence" id="sentence1"></p>
+        <p class="sentence" id="sentence2"></p>
+        <button type="button" id="submitGuess">Submit</button>
+      </div>
+
+      <div id="answer">
+        <p id="answer-text"></p>
+      </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
