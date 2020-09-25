@@ -160,7 +160,9 @@ function displaySentenceChoices(userSentence, sentenceIndex) {
 
 function highlightSentence(clickedElement, otherElement) {
     clickedElement.style.backgroundColor = "#1D70A2";
-    otherElement.style.backgroundColor =  "#04724D";
+    clickedElement.style.color = "#9AC2C9"
+    otherElement.style.backgroundColor =  "#9AC2C9";
+    otherElement.style.color = "#1D70A2";
 }
 
 function displayAnswer(bookSentence, userChoice, sentenceIndex) {

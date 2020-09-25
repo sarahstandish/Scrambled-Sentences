@@ -75,9 +75,8 @@ input {
 
 .sentence {
     border: 1px solid #1D70A2;
-    background-color: #04724D;
     padding: 1%;
-    color: #9AC2C9;
+    color: #1D70A2;
     font-size: 1.5em;
     border-radius: 3%;
     width: max-content;
@@ -87,9 +86,28 @@ input {
 .sentence:hover {
     cursor: pointer;
     background-color:#1D70A2;
+    color: #9AC2C9;
 }
 
 #answer {
     display: none;
     font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+    p {
+        text-align: center;
+        font-size: 3em;
+        line-height: 1.5;
+    }
+
+    input {
+        border: none;
+        border-bottom: 2px solid #04724D;
+        padding-right: 5px;
+        width: 100px;
+        margin-right: 10px;
+        color: #04724D;
+        font-size: 2em;
+    }
 }
