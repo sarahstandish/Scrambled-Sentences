@@ -1,6 +1,7 @@
 * {
     background-color: #9AC2C9;
     font-family: Kufam, cursive;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -63,6 +64,10 @@ input {
     display: inline-block;
     margin-top: 1%;
     margin-bottom: 1%;
+}
+
+#invalid-submission {
+    display: none;
 }
 
 #select-sentence {

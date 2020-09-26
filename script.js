@@ -70,7 +70,11 @@ const playGame = () => {
     let bookSentence;
     submitButton.onclick = function() {
         let userSentence = getUserSentence(sentenceIndex); // get the sentence the user submits
-        bookSentence = displaySentenceChoices(userSentence, sentenceIndex); // display the user sentence and the book sentence
+        if (isValidSentence(userSentence, letterArray)) {
+            bookSentence = displaySentenceChoices(userSentence, sentenceIndex); // display the user sentence and the book sentence
+        } else {
+            displayErrorMessage(userSentence, letterArray);
+        }
     }
 
     //highlight the sentence selected by the user
@@ -116,7 +120,7 @@ function firstLetterArray(sentenceIndex) {
 function displaySentence(letterArray) {
     let formHTML = `<form id="sentenceForm">`;
     letterArray.forEach(letter => {
-        formHTML += `<span class="word"><label for="${letter}"> ${letter}</label><input type="text" id="${letter}" name="${letter}"></input></span>`;
+        formHTML += `<div class="word"><input type="text" id="${letter}" name="${letter}" placeholder="${letter}"></input><label for="${letter}"></label></div>`;
     })
     formHTML += `</form>`;
     sentenceForm.innerHTML = formHTML;
@@ -127,18 +131,67 @@ function getUserSentence(sentenceIndex) {
     var form = document.getElementById("sentenceForm");
     var userSentence = "";
     for (let i = 0; i < form.length - 1; i++) {
-        userSentence += form.elements[i].name;
-        userSentence += form.elements[i].value;
+        //userSentence += form.elements[i].name;
+        userSentence += form.elements[i].value.trim();
         userSentence += " ";
     }
-    document.getElementById('incomplete-sentence').style.display = "none";
+    userSentence = userSentence.trim();
 
     return userSentence;
 }
 
+// check if the sentence is long enough and starts with the correct letters
+function isValidSentence(userSentence, letterArray) {
+    let userSentenceArray = userSentence.split(" ");
+
+    if (userSentenceArray.length != letterArray.length) {
+        return false;
+    }
+
+    for (let i = 0; i < userSentenceArray.length; i++) {
+        if (userSentenceArray[i][0].toLowerCase() != letterArray[i].toLowerCase()) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// show an error message if the user sentence does not pass validation
+function displayErrorMessage(userSentence, letterArray) {
+    let userSentenceArray = userSentence.split(" ");
+
+    if (userSentenceArray.length != letterArray.length) {
+        document.getElementById('invalid-submission').innerHTML = "Don't leave any words blank."
+        document.getElementById('invalid-submission').style.display = "block";
+    } else {
+        for (let i = 0; i < userSentenceArray.length; i++) {
+            if (userSentenceArray[i][0].toLowerCase() != letterArray[i].toLowerCase()) {
+                document.getElementById('invalid-submission').innerHTML = `The ${getOrdinal(i + 1)} word must start with the letter ${letterArray[i].toUpperCase()}`;
+                document.getElementById('invalid-submission').style.display = "block";
+                return;
+            }
+        }
+    }
+}
+
+// return a correct ordinal for use in the error message
+function getOrdinal(n) {
+    if (n === 1) {
+        return "1st";
+    } else if (n === 2) {
+        return "2nd";
+    } else if (n === 3) {
+        return "3rd";
+    } else {
+        return `${n}th`;
+    }
+}
+
 //display the sentence options: written by the user or the sentence from the book
 function displaySentenceChoices(userSentence, sentenceIndex) {
-    
+    document.getElementById('incomplete-sentence').style.display = "none";
+
     let bookSentence = realSentences[sentenceIndex].sentence;
     
     // select either 0 or 1 and use the selection to determine the order in which the sentences are displayed
