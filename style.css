@@ -100,10 +100,18 @@ input {
 }
 
 @media only screen and (max-width: 500px) {
+
+    h1 {
+        font-size: 1.75em;
+        max-width: 100%;
+    }
      
     p {
         text-align: center;
         line-height: 1.5;
+        padding: 0;
+        margin: 0;
+        padding-top: 1%;
     }
 
     .word {
@@ -133,7 +141,13 @@ input {
     }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 330px) {
+
+    h1 {
+        font-size: 1em;
+        letter-spacing: .2em;
+        max-width: 100%;
+    }
      
     p {
         text-align: center;
@@ -142,7 +156,7 @@ input {
     }
 
     .word {
-        min-width: 32%;
+        min-width: 30%;
     }
 
     input {
