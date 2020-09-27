@@ -132,3 +132,39 @@ input {
         max-width: 100%;
     }
 }
+
+@media only screen and (max-width: 300px) {
+     
+    p {
+        text-align: center;
+        line-height: 1.5;
+        font-size: 1.2em;
+    }
+
+    .word {
+        min-width: 32%;
+    }
+
+    input {
+        border: none;
+        border-bottom: 2px solid #04724D;
+        padding-right: 3px;
+        margin-right: 5px;
+        color: #04724D;
+        font-size: 1.2em;
+        min-width: 90%;
+    }
+
+    button {
+        padding: 3%;
+        margin-top: 3%;
+        font-size: 1em;
+    }
+
+    .sentence {
+        margin-bottom: 2%;
+        padding: 2%;
+        max-width: 100%;
+        font-size: 1.2em;
+    }
+}
