@@ -99,20 +99,36 @@ input {
     font-weight: bold;
 }
 
-@media screen and (max-width: 800px) {
+@media only screen and (max-width: 500px) {
+     
     p {
         text-align: center;
-        font-size: 3em;
         line-height: 1.5;
+    }
+
+    .word {
+        min-width: 32%;
     }
 
     input {
         border: none;
         border-bottom: 2px solid #04724D;
-        padding-right: 5px;
-        width: 100px;
-        margin-right: 10px;
+        padding-right: 3px;
+        margin-right: 5px;
         color: #04724D;
-        font-size: 2em;
+        font-size: 1.25em;
+        min-width: 90%;
+    }
+
+    button {
+        padding: 3%;
+        margin-top: 3%;
+        font-size: 1.25em;
+    }
+
+    .sentence {
+        margin-bottom: 5%;
+        padding: 2%;
+        max-width: 100%;
     }
 }

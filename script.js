@@ -69,7 +69,7 @@ const playGame = () => {
     
     let bookSentence;
     submitButton.onclick = function() {
-        let userSentence = getUserSentence(sentenceIndex); // get the sentence the user submits
+        let userSentence = getUserSentence(sentenceIndex); // get the sentence the user submits, check if it's valid
         if (isValidSentence(userSentence, letterArray)) {
             bookSentence = displaySentenceChoices(userSentence, sentenceIndex); // display the user sentence and the book sentence
         } else {
@@ -120,7 +120,7 @@ function firstLetterArray(sentenceIndex) {
 function displaySentence(letterArray) {
     let formHTML = `<form id="sentenceForm">`;
     letterArray.forEach(letter => {
-        formHTML += `<div class="word"><input type="text" id="${letter}" name="${letter}" placeholder="${letter}"></input><label for="${letter}"></label></div>`;
+        formHTML += `<div class="word"><input type="text" id="${letter}" name="${letter}" placeholder="${letter}"></input></div>`;
     })
     formHTML += `</form>`;
     sentenceForm.innerHTML = formHTML;
@@ -155,7 +155,7 @@ function isValidSentence(userSentence, letterArray) {
     }
 
     return true;
-}
+}git 
 
 // show an error message if the user sentence does not pass validation
 function displayErrorMessage(userSentence, letterArray) {
